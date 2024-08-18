@@ -1,0 +1,61 @@
+{
+  "products": 
+      [
+        {
+          "id": "1",
+          "sku": "549/3179",
+          "title": "Lets Test Json 1",
+          "price": "14.99",
+          "image": "Test.png"
+        },
+        {
+          "id": "2",
+          "sku": "549/3179",
+          "title": "Lets Test Json 1",
+          "price": "14.99",
+          "image": "Test.png"
+        },
+        {
+          "id": "3",
+          "sku": "549/3179",
+          "title": "Lets Test Json 1",
+          "price": "14.99",
+          "image": "Test.png"
+        },
+        {
+          "id": "4",
+          "sku": "549/3179",
+          "title": "Lets Test Json 1",
+          "price": "14.99",
+          "image": "Test.png"
+        },
+        {
+          "id": "5",
+          "sku": "549/3179",
+          "title": "Lets Test Json 1",
+          "price": "14.99",
+          "image": "Test.png"
+        },
+        {
+          "id": "6",
+          "sku": "549/3179",
+          "title": "Lets Test Json 1",
+          "price": "14.99",
+          "image": "Test.png"
+        },
+        {
+          "id": "7",
+          "sku": "549/3179",
+          "title": "Lets Test Json 1",
+          "price": "14.99",
+          "image": "Test.png"
+        },
+        {
+          "id": "8",
+          "sku": "549/3179",
+          "title": "Lets Test Json 1",
+          "price": "14.99",
+          "image": "Test.png"
+        }
+    ]
+}

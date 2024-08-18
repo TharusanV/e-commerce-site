@@ -1,14 +1,34 @@
 import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from "react-router-dom";
+
 import { useState, useEffect } from 'react';
 
-import products from './productsJson.json'
+import products from './oldProducts.json'
 
 import MainLayout from "./layouts/MainLayout";
 import HomePage from "./pages/HomePage";
 import BasketPage from "./pages/BasketPage";
 import UnknownPage from "./pages/UnknownPage";
 
-function App() {
+const App = () => {
+
+  /*
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const res = await fetch('http://localhost:5000/products'); 
+        const data = await res.json();
+        setProducts(data);
+      } catch (error) {
+        console.log('Error fetching data', error);
+      }
+    }
+
+    fetchProducts();
+  }, []);
+  */
+
   const [basket, setBasket] = useState([]);
 
   const router = createBrowserRouter(

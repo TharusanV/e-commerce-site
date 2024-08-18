@@ -1,0 +1,35 @@
+/* Banner container */
+.banner {
+  background-color: rgb(233, 232, 232);
+  padding: 1.5rem; 
+  
+  width: 1000px; 
+  height: 24rem; 
+
+  margin: 0 auto; 
+
+  border-radius: 0.75rem; 
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1); 
+
+  display: flex; 
+  align-items: center; 
+  gap: 1rem; 
+}
+
+/* Card title */
+.banner-title {
+  font-size: 1.25rem; 
+  font-weight: 500; 
+  color: black; 
+}
+
+/* Card text */
+.banner-text {
+  color: #64748b; 
+}
+
+@media (max-width: 1280px) {
+  .banner {
+    width: 90%;
+  }
+}
