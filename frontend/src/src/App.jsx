@@ -1,8 +1,9 @@
 import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from "react-router-dom";
 
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 
-import products from './oldProducts.json'
+import products1 from './oldProducts.json'
 
 import MainLayout from "./layouts/MainLayout";
 import HomePage from "./pages/HomePage";
@@ -11,30 +12,28 @@ import UnknownPage from "./pages/UnknownPage";
 
 const App = () => {
 
-  /*
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await fetch('http://localhost:5000/products'); 
-        const data = await res.json();
-        setProducts(data);
+        const response = await axios.get('http://localhost:8000');
+        setProducts(response.data);
+        console.log(products);
       } catch (error) {
-        console.log('Error fetching data', error);
+        console.error('Error fetching products:', error);
       }
-    }
+    };
 
     fetchProducts();
   }, []);
-  */
 
   const [basket, setBasket] = useState([]);
 
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path='/' element={<MainLayout/>}>
-        <Route index element={<HomePage p_products={products} p_basket={basket} p_setBasket={setBasket} />} />
+        <Route index element={<HomePage p_products={products1} p_basket={basket} p_setBasket={setBasket} />} />
         <Route path='*' element={<UnknownPage/>} />
         <Route path='/basket' element={<BasketPage p_basket={basket} p_setBasket={setBasket}/>} />
       </Route>

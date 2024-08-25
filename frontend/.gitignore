@@ -42,5 +42,3 @@ coverage/
 
 # Production files
 public/
-
-application.properties
