@@ -1,0 +1,8 @@
+Packages:
+
+model - Represents the database models (tables)
+service - Stores all the possible client requests for a model i.e. implements the business logic to be able to respond to the applications needs (HTTP GET/SET/POST/DELETE requests
+controller - provides that interface between the client, frontend client and the backend : Calls the response to client requests when asked through api calls 
+dto - The data transfer objects which basically represent the data transfer and the data that's coming from the client and mapped onto a Java object is here.
+repository - Interfaces to the database tables
+

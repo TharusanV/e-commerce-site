@@ -3,25 +3,35 @@ package com.ecommerce.backend.dto;
 import com.ecommerce.backend.UserType;
 
 public class UserPostDTO {
-	String name;
+	String firstName;
+	String surname;
 	String email;
 	String password;
 	Boolean userType[];
 	
-	public UserPostDTO(String name, String email, String password, Boolean[] buyer_seller) {
+	public UserPostDTO(String firstName, String surname, String email, String password, Boolean[] buyer_seller) {
 		super();
-		this.name = name;
+		this.firstName = firstName;
+		this.surname = surname;
 		this.email = email;
 		this.password = password;
 		this.userType = buyer_seller;
 	}
 	
-	public String getName() {
-		return name;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	
+	public String getSurname() {
+		return surname;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
 	}
 
 	public String getEmail() {
