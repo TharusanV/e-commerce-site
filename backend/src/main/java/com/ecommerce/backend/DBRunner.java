@@ -2,13 +2,13 @@ package com.ecommerce.backend;
 
 import com.ecommerce.backend.model.*;
 import com.ecommerce.backend.repository.*;
+
 import java.math.BigDecimal;
 import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 
@@ -18,39 +18,14 @@ public class DBRunner implements CommandLineRunner{
 	private UserRepository userRepository;
 	
 	@Autowired
-	private ProduceRepository produceRepository;
+	private ProductRepository productRepository;
 	
 	@Autowired
-	private ProduceSellerPriceRepository priceRepository;
+	private ProductSellerPriceRepository priceRepository;
 
 	
 	@Override
-	 public void run(String... args) throws Exception {
-		/*
-		priceRepository.deleteAll();
-		userRepository.deleteAll();
-		produceRepository.deleteAll();
-		
-		
-		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		User newUser = new User("alex", "bob", "alex@sample.com", encoder.encode("alex_pass"), UserType.SELLER);
-		userRepository.save(newUser);
-		
-		Produce newProduce = new Produce("Apple");
-		produceRepository.save(newProduce);
-		
-		ProduceSellerPrice newPSPrice = new ProduceSellerPrice();
-		newPSPrice.setProduce(newProduce);
-		newPSPrice.setSeller(newUser);
-		newPSPrice.setPrice(new BigDecimal(1));
-		priceRepository.save(newPSPrice);
-		
-		
-		Iterable<ProduceSellerPrice> prices= priceRepository.findAll();
-		prices.forEach((p)->{
-			System.out.println(p);
-		});
-		*/
+	public void run(String... args) throws Exception {
 		
 	}
 }

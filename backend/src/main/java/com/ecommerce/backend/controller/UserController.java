@@ -26,51 +26,38 @@ public class UserController {
 	@Autowired
 	UserService userService;
 
-
 	// Get All Users
     @GetMapping("/user")
     public List<User> getUsers() {
         return userService.getUsers();
     }
     
+    //Post
     @PostMapping("/user")
     public ResponseEntity<Optional<User>> addUser(@RequestBody UserPostDTO newUserDTO) {
     	
-    	if (newUserDTO.getFirstName()==null || 
-    		newUserDTO.getSurname()==null || 
-    		newUserDTO.getEmail()==null ||
-    		newUserDTO.getPassword()==null ||
-    		newUserDTO.getUserType() == null) {
+    	if (newUserDTO.getFirstName()==null || newUserDTO.getSurname()==null || newUserDTO.getEmail()==null || newUserDTO.getPassword()==null || newUserDTO.getUserType() == null) {
             return new ResponseEntity<>(Optional.ofNullable(null), HttpStatus.BAD_REQUEST);
         }
     	
-    	BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-    	User newUser = new User(newUserDTO.getFirstName(), newUserDTO.getSurname(), newUserDTO.getEmail(),
-    			encoder.encode(newUserDTO.getPassword()), newUserDTO.convertType());
+    	User newUser = new User(newUserDTO.getFirstName(), newUserDTO.getSurname(), newUserDTO.getEmail(), newUserDTO.getPassword(), newUserDTO.convertType());
+    	
     	userService.addUser(newUser);
+    	
     	return new ResponseEntity<>(Optional.ofNullable(newUser),HttpStatus.CREATED);
-
     }
 	 
     
     // Get User by ID
-    @GetMapping("/user/{id}")
-    public Optional<User> getUserById(@PathVariable(value = "id") long Id) {
-        return userService.findByID(Id);
-    }
-    
-    
-    //Delete a User by ID
-    @DeleteMapping("/user/{id}")
-    public String deleteUser(@PathVariable(value = "id") long Id) {
-        userService.deleteUser(Id);
-        return "User Deleted"; 
+    @GetMapping("/user/{userID}")
+    public Optional<User> getUserByUserID(@PathVariable(value = "userID") Long userID) {
+        return userService.findByUserID(userID);
     }
     
     //Get User by Email
     @GetMapping("/user/findByEmail")
     public Optional<User> getUserByEmail(@RequestParam String email) {
-    	return Optional.ofNullable(userService.findByEmail(email));
+    	return Optional.ofNullable(userService.findUserByEmail(email));
     }
 
 }

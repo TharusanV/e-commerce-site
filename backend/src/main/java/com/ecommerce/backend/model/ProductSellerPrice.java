@@ -17,47 +17,47 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.ecommerce.backend.UserType;
 
-//Let's create a simple User class
 @Entity
-@Table(name = "PSPrices")
+@Table(name = "ProductSellerPrices")
 @EntityListeners(AuditingEntityListener.class)
-
-public class ProduceSellerPrice implements Serializable {
+public class ProductSellerPrice implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
 	
-	 @ManyToOne
-	 @JoinColumn(name = "produceId")
-	 Produce produce;
+	@ManyToOne
+	@JoinColumn(name = "productId")
+	Product product;
 
-	 @ManyToOne
-	 @JoinColumn(name = "sellerId")
-	 User seller;
+	@ManyToOne
+	@JoinColumn(name = "sellerId")
+	User seller;
 
-	 BigDecimal price;
-	 
-	 
+	BigDecimal price;
+	
+	int quantity;
 
-	public ProduceSellerPrice() {
+
+	public ProductSellerPrice() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public ProduceSellerPrice(Produce produce, User seller, BigDecimal price) {
-		this.produce = produce;
+	public ProductSellerPrice(Product product, User seller, BigDecimal price, int quantity) {
+		this.product = product;
 		this.seller = seller;
 		this.price = price;
+		this.quantity = quantity;
 	}
 
-	public Produce getProduce() {
-		return produce;
+	public Product getProduct() {
+		return product;
 	}
 
-	public void setProduce(Produce produce) {
-		this.produce = produce;
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 
 	public User getSeller() {
@@ -76,11 +76,22 @@ public class ProduceSellerPrice implements Serializable {
 		this.price = price;
 	}
 
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
 	@Override
 	public String toString() {
-		return "ProduceSellerPrice [id=" + id + ", produce=" + produce + ", seller=" + seller + ", price=" + price
-				+ "]";
+		return "ProductSellerPrice [id=" + id + ", product=" + product + ", seller=" + seller + ", price=" + price
+				+ ", quantity=" + quantity + "]";
 	}
+	
+	
+
 	 
 	
 	 

@@ -26,9 +26,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "Produce")
+@Table(name = "Products")
 @EntityListeners(AuditingEntityListener.class)
-public class Produce implements Serializable{
+public class Product implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -36,21 +36,29 @@ public class Produce implements Serializable{
 	Long id;
 	
 	@NotBlank
-	String name;
+	String title;
 	
-	public Produce() {
+	public Product() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Produce(@NotBlank String name) {
+	public Product(@NotBlank String title) {
 		super();
-		this.name = name;
+		this.title = title;
 	}
+	
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
 	@Override
 	public String toString() {
-		return "Produce [id=" + id + ", name=" + name + "]";
+		return "Product [id=" + id + ", title=" + title + "]";
 	}
 
 	

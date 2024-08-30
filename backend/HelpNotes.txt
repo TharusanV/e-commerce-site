@@ -1,8 +1,40 @@
-Packages:
+Packages are organised by the functionality they provide in line with the MVC (Model-View-Controller) pattern
 
-model - Represents the database models (tables)
-service - Stores all the possible client requests for a model i.e. implements the business logic to be able to respond to the applications needs (HTTP GET/SET/POST/DELETE requests
-controller - provides that interface between the client, frontend client and the backend : Calls the response to client requests when asked through api calls 
-dto - The data transfer objects which basically represent the data transfer and the data that's coming from the client and mapped onto a Java object is here.
-repository - Interfaces to the database tables
+Controller:
+The controller package typically contains controller classes (annotated with @RestController or @Controller).
+These classes handle incoming HTTP requests and send responses back to the client.
+The controller acts as the entry point to the application for external clients. It usually has methods that correspond to various endpoints, like /api/users or /api/orders, for example.
 
+DTO (Data Transfer Object):
+This package contains DTO classes, which are plain Java objects used to transfer data between layers of the application, especially between the controller and service layers.
+DTOs are commonly used to define the data structure that is sent and received by the API (controller) without exposing internal models directly.
+These objects are typically used to simplify or transform data when it is transferred, often hiding certain fields or reformatting complex objects into a more usable structure.
+
+Model:
+The model package contains the domain objects or entities that represent the data your application is working with.
+These classes are typically annotated with @Entity (for persistence) and correspond to database tables. They define the structure of the data and might include relationships between entities, such as @OneToMany or @ManyToOne.
+These are usually the core business objects that are used throughout the service and repository layers.
+
+Repository:
+The repository package contains repository interfaces that interact with the database.
+These are often extending the JpaRepository, CrudRepository, or PagingAndSortingRepository interfaces from Spring Data JPA.
+Repositories handle CRUD operations (Create, Read, Update, Delete) and data access logic, translating Java objects into database records and vice versa.
+They abstract the underlying database queries, allowing developers to write minimal or no SQL.
+
+Service:
+The service package contains the business logic of the application.
+Service classes (often annotated with @Service) are used to handle core operations and implement business rules.
+These classes typically call the repository layer to perform CRUD operations on the models and interact with the controllers to serve data.
+Services help to decouple business logic from the web layer (controllers) and repository layer (database access), promoting better separation of concerns.
+
+
+
+
+
+
+Typical Flow in the Application:
+1- Controller receives an HTTP request from the client, such as creating or fetching data.
+2- It interacts with the Service, which contains the business logic.
+3- The Service may call the Repository to perform database operations, either saving or fetching data based on the request.
+4- The Model represents the data entities being manipulated.
+5- DTOs are used to map or format the data being passed between layers, especially when returning data to the client or receiving it from a request.
