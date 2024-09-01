@@ -6,8 +6,8 @@ import Footer from '../components/Footer';
 const MainLayout = ({loggedInUser,setLoggedinUser}) => {
   return (
     <>
-      <Navbar context={[loggedInUser,setLoggedinUser]}/>
-      <Outlet context={[loggedInUser,setLoggedinUser]}/>
+      <Navbar />
+      <Outlet />
       <Footer/>
     </>
   )

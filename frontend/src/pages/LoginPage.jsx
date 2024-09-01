@@ -1,79 +1,52 @@
-import React, {useRef} from "react";
-import { useOutletContext } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
-const LoginPage = () => {
-  const email=useRef();
-  const password=useRef();
-  const [loggedInUser, setLoggedinUser] = useOutletContext();
+function LoginPage() {
+  const navigate = useNavigate(); // Use the hook inside the component
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
-  const validateForm = () => {
-    let formValid = false;
-    if (email.current.validity.valueMissing || password.current.validity.valueMissing){
-      alert("Please fill in all text fields.");
+  useEffect(() => {
+    const storedEmail = localStorage.getItem('emailData');
+    if (storedEmail) {
+      navigate("/");
     }
-    else if (email.current.validity.typeMismatch){
-      alert("Invalid e-mail address. Please enter your e-mail again.");
-    }
-    else{
-      formValid = true;
-    }
-    
-    return formValid;
-  }
+  }, []);
 
-  const handleSubmit = (event) => {
-      event.preventDefault();
+  function handleSubmit(e) {
+    e.preventDefault();
 
-      const dataLogin = {username: email.current.value,password: password.current.value
-      };
+    axios.get("http://localhost:8080/user").then((response) => {
+      // Use .find() to check if any user matches the username and password
+      const foundUser = response.data.find(
+        (user) => username === user.email && password === user.password
+      );
 
-      console.log(dataLogin);
-
-      if(validateForm()){
-          axios({
-              method: 'post',
-              url: 'http://localhost:8080/login',
-              data: dataLogin
-          })
-          .then(response=>{
-              console.log(response);
-              if (response.status === 200){
-                  alert("Logged in successfully.")
-                  const jwtToken = response.headers.authorization.split(' ')[1]
-                  if (jwtToken !== null) {
-                      sessionStorage.setItem("jwt", jwtToken);
-                      console.log(jwtToken);
-                      setLoggedinUser(email.current.value);
-                  } else{
-                      alert("Token failure!");
-                      setLoggedinUser("");
-                  }
-              }else{
-                  alert("Login error!")
-                  setLoggedinUser("");
-              }
-          }).then(()=>{
-              email.current.value="";
-              password.current.value="";
-          })
-          .catch(error=>{
-              alert("Login error!")
-              setLoggedinUser("");
-              console.log(error);
-          })
+      if (foundUser) {
+        console.log(1);
+        // If a user is found, store their info in localStorage
+        localStorage.setItem("emailData", foundUser.email);
+        localStorage.setItem("userID", foundUser.userID);
+        localStorage.setItem("seller", foundUser.userType);
+        navigate("/"); // Correct usage of navigate function here
+      } else {
+        // If no user matches, show an error message
+        setError("Invalid username or password. Please try again.");
       }
-    }
+    });
+  }
 
     return (
       <form className="form" noValidate onSubmit={handleSubmit}>
         <label className="labelText">Email:</label>
-        <input type="email" ref={email} name="email" required/><br/><br/>
+        <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} required/>
 
         <label className="labelText">Password:</label>
-        <input type="password" ref={password} name="password" required/><br/><br/>
+        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required/><br/><br/>
           
-        <input type="submit" value="Submit"/>
+        <button type="submit">Submit</button>
       </form>
     )
 }

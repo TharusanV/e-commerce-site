@@ -1,58 +1,58 @@
 [
   {
     "id": "1",
-    "sku": "549/3179",
-    "title": "Lets Test Json 1",
-    "price": "14.99",
-    "image": "Test.png"
+    "seller": "Apple",
+    "title": "Apple AirPods with wired Charging Case (2nd generation)",
+    "price": "128.99",
+    "image": "1.jpg"
   },
   {
     "id": "2",
-    "sku": "549/3179",
-    "title": "Lets Test Json 2",
-    "price": "14.99",
-    "image": "Test.png"
+    "seller": "KEPLIN",
+    "title": "KEPLIN Round Trash Can - Black Non-slip Mesh Bin, Stylish & Sturdy Metal Waste Paper Bin for Home, Bedroom, Office, Bathroom, Living Room & Kitchen - Indoor Garbage Bin with Sleek Design",
+    "price": "5.99",
+    "image": "2.jpg"
   },
   {
     "id": "3",
-    "sku": "549/3179",
-    "title": "Lets Test Json 3",
-    "price": "14.99",
-    "image": "Test.png"
+    "seller": "Walkers",
+    "title": "Walkers Classic Variety Multipack Crisps Box 20x25g",
+    "price": "5.00",
+    "image": "3.jpg"
   },
   {
     "id": "4",
-    "sku": "549/3179",
-    "title": "Lets Test Json 4",
+    "seller": "AstroAI",
+    "title": "AstroAI Tyre Inflator Air Compressor 12V DC, Digital Car Tyre Pump 150 PSI, Preset Tyre Pressure & Auto Shutoff, Electric Air Pump for Car Tyres, Bicycles, Other Inflatables (Yellow)",
     "price": "14.99",
-    "image": "Test.png"
+    "image": "4.jpg"
   },
   {
     "id": "5",
-    "sku": "549/3179",
-    "title": "Lets Test Json 5",
-    "price": "14.99",
-    "image": "Test.png"
+    "seller": "Amazon",
+    "title": "Amazon Fire TV Stick Lite with Alexa Voice Remote Lite, our most affordable HD streaming stick",
+    "price": "34.99",
+    "image": "5.jpg"
   },
   {
     "id": "6",
-    "sku": "549/3179",
-    "title": "Lets Test Json 6",
-    "price": "14.99",
-    "image": "Test.png"
+    "seller": "George R.R. Martin",
+    "title": "Fire and Blood: The inspiration for HBO and Sky TV series HOUSE OF THE DRAGON from the internationally bestselling creator of GAME OF THRONES (A Song of Ice and Fire) ",
+    "price": "4.99",
+    "image": "6.jpg"
   },
   {
     "id": "7",
-    "sku": "549/3179",
-    "title": "Lets Test Json 7",
-    "price": "14.99",
-    "image": "Test.png"
+    "seller": "Bosch",
+    "title": "Bosch Home and Garden Electric Lawnmower Arm 3200, 1200 W, Cutting Width 32 cm, with Additional Blade Included, in Carton Packaging, Black, Blue",
+    "price": "60.99",
+    "image": "7.jpg"
   },
   {
     "id": "8",
-    "sku": "549/3179",
-    "title": "Lets Test Json 8",
-    "price": "14.99",
-    "image": "Test.png"
+    "seller": "PlayStation",
+    "title": "PlayStation 5 Digital Console (Slim)",
+    "price": "300.99",
+    "image": "8.jpg"
   }
 ]

@@ -5,9 +5,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import com.ecommerce.backend.model.ProductSellerPrice;
+import com.ecommerce.backend.model.ProductListing;
 import com.ecommerce.backend.model.User;
-import com.ecommerce.backend.repository.ProductSellerPriceRepository;
+import com.ecommerce.backend.repository.ProductListingRepository;
 import com.ecommerce.backend.repository.UserRepository;
 import com.ecommerce.backend.UserType;
 import com.ecommerce.backend.exception.ResourceNotFoundException;
@@ -18,7 +18,7 @@ public class UserService {
 	@Autowired
     UserRepository userRepository;
 	@Autowired
-	ProductSellerPriceRepository priceRepository;
+	ProductListingRepository priceRepository;
 	
 	public UserService() {
 		super();

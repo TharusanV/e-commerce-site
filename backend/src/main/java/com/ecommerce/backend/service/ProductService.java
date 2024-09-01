@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ecommerce.backend.model.Product;
-import com.ecommerce.backend.model.ProductSellerPrice;
+import com.ecommerce.backend.model.ProductListing;
 import com.ecommerce.backend.repository.ProductRepository;
-import com.ecommerce.backend.repository.ProductSellerPriceRepository;
+import com.ecommerce.backend.repository.ProductListingRepository;
 import com.ecommerce.backend.repository.UserRepository;
 import com.ecommerce.backend.model.User;
 
@@ -19,7 +19,7 @@ public class ProductService {
     private ProductRepository productRepository;
     
     @Autowired
-    private ProductSellerPriceRepository productSellerPriceRepository;
+    private ProductListingRepository productListingRepository;
 
     @Autowired
     private UserRepository userRepository;

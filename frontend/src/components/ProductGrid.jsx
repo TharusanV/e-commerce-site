@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import image from "../assets/1.jpg"
 
 const ProductGrid = ({p_products, p_basket, p_setBasket}) => {
 
@@ -28,14 +27,17 @@ const ProductGrid = ({p_products, p_basket, p_setBasket}) => {
       {p_products.map(product => (
         <div key={product.id} className="product-item">
           
-          <img src={image} alt="Product Image" className="icon"/>
-
-          <div className="product-info-container">
-            <p style={{fontWeight: "bold"}}>{product.title}</p>
-            <p>£{product.price}</p>
+          <div style={{display: 'flex', justifyContent: 'center'}}>
+            <img src={`src/assets/${product.image}`} alt="Product Image" className="icon"/>
           </div>
 
-          <p >{product.sku}</p>
+          <div className="product-info-price-container">
+            <p style={{fontWeight: "bold"}}>£{product.price}</p>
+          </div>
+
+          <div className="product-info-container">
+            <p > {product.title.length > 50 ? `${product.title.slice(0, product.title.slice(0, 50).lastIndexOf(' '))}...` : product.title} </p>
+          </div>
           
           <button onClick={() => addToBasket(product)}>
             Add to Cart

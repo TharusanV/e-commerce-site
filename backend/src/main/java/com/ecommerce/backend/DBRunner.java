@@ -11,7 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+/*
 
+*/	
 @Component
 public class DBRunner implements CommandLineRunner{
 	@Autowired 
@@ -21,7 +23,7 @@ public class DBRunner implements CommandLineRunner{
 	private ProductRepository productRepository;
 	
 	@Autowired
-	private ProductSellerPriceRepository priceRepository;
+	private ProductListingRepository priceRepository;
 
 	
 	@Override

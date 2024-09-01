@@ -1,5 +1,6 @@
 import React, {useRef} from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const RegistrationPage = () => {
   const firstName=useRef();
@@ -9,7 +10,6 @@ const RegistrationPage = () => {
   const repPassword=useRef();
   const buyer=useRef();
   const seller=useRef();
-  const tos=useRef();
 
   const validateForm = () => {
     let formValid = false;
@@ -29,9 +29,6 @@ const RegistrationPage = () => {
     else if (!buyer.current.checked && !seller.current.checked){
       alert("Please check at least one checkbox to select being a seller or a buyer in the system.")
     } 
-    else if (tos.current.validity.valueMissing){
-      alert("Please agree to the Terms and Conditions, and Privacy Policy.")
-    }
     else{
       formValid = true;
     }
@@ -89,13 +86,10 @@ const RegistrationPage = () => {
       <input type="password" ref={repPassword} name="repPassword" required/><br/><br/>
 
       <input type="checkbox" ref={buyer} name="buyer" value="buyer"/>
-      <label>I want to buy produce directly from allotment owners.</label><br/>
+      <label>I want to buy products</label><br/>
 
       <input type="checkbox" ref={seller} name="seller" value="seller"/>
-      <label>I want to sell produce from my allotment.</label><br/><br/>
-
-      <input type="checkbox" ref={tos} name="tos" value="tos" required/>
-      <label>I agree to the Terms of Use and Privacy Policy.</label>
+      <label>I want to sell products</label><br/><br/>
       <br/><br/>
 
       <input type="submit" value="Submit"/>

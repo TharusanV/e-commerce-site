@@ -9,6 +9,7 @@ import BasketPage from "./pages/BasketPage";
 import UnknownPage from "./pages/UnknownPage";
 import LoginPage from "./pages/LoginPage";
 import RegistrationPage from "./pages/RegistrationPage";
+import CreateProductPage from "./pages/CreateProductPage";
 
 function App() {
   const [loggedInUser, setLoggedinUser] = useState("");
@@ -22,6 +23,7 @@ function App() {
         <Route path='/basket' element={<BasketPage p_basket={basket} p_setBasket={setBasket}/>} />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/register' element={<RegistrationPage />} />
+        <Route path='/createProduct' element={<CreateProductPage />} />
       </Route>
     )
   );
